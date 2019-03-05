@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "FlowerBlossom",
+    "image": "/images/redRose.jpeg",
+    "value": false
+  },
+  {
+    "id": 2,
+    "name": "Bromliad",
+    "image": "/images/flower-bromeliad.jpg",
+    "value": false
+  },
+  {
+    "id": 3,
+    "name": "Rose",
+    "image": "/images/Redrose.jpeg",
+    "value": false
+  },
+  {
+    "id": 4,
+    "name": "redPinkRose",
+    "image": "/images/garden-rose-red-pink-56866.jpeg",
+    "value": false
+  },
+  {
+    "id": 5,
+    "name": "fieldFlower",
+    "image": "/images/flower-blossom.jpeg",
+    "value": false  
+  },
+  {
+    "id": 6,
+    "name": "pinkSpindle",
+    "image": "/images/pinkSpindle.jpeg",
+    "value": false  
+  },
+  {
+    "id": 7,
+    "name": "Rose",
+    "image": "/images/flower-rose-76141.jpeg",
+    "value": false 
+  },
+  {
+    "id": 8,
+    "name": "TwoFlowers",
+    "image": "images/twoFlowers.jpg",
+    "value": false
+  },
+  {
+    "id": 9,
+    "name": "RobRoyDaisy",
+    "image": "./images/rob-roy-daisy-red-flower-88503.jpeg",
+    "value": false
+  },
+  {
+    "id": 10,
+    "name": "SnowFlake",
+    "image": "./images/snowflake-flower-blossom-bloom-59836.jpeg",
+    "value": false
+  },
+  {
+    "id": 11,
+    "name": "sukullenteAlpine",
+    "image": "/images/sukullente-alpine-flora.jpeg",
+    "value": false
+  },
+  {
+    "id": 12,
+    "name": "WaterLily",
+    "image": "/images/water-lily.jpeg",
+    "value": false
+  }
+]
