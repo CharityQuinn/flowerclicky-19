@@ -1,88 +1,100 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import FlowerCard from './components/FlowerCard';
 import Wrapper from './components/Wrapper';
 import flowers from './flowers.json';
 import './App.css';
 
+let pickedFlowers = [];
+let flowerClick = "";
+let updatedFlowerList = [];
+
 class App extends Component {
   // create state to hold onto friend list information
   state = {
     flowerList: flowers,
-    pickedFlowers: []
+    pickedFlowers: [],
+    currentHigh: 5
   };
 
-  // come up with methods to shuffle friends and update the flowerList
-   shuffleFlower = flowerId => {
-    // console.log("shuffle's prop " + prop);
-      const updatedflowerList = this.state.flowerList
-        .sort(() => 0.5 - Math.random());
-
-    // use this.setState() to update our flowerList and trigger a rerender of the FlowerCards
-     this.setState({
-      flowerList: updatedflowerList
-    });
-  };
-
-  flowerClick = index => {
+   flowerClick = index => {
+    // Need to get the clicked picture, compare it to an array of picked pictures and see if it has been clicked 
+    // If the picture has not been clicked add one to score, save the id of the picture so I know if the picture was clicked and shuffle the pictures, wait for the next click 
     console.log(this.state.flower[index].value);
-     this.flowerClick = this.flowerClick.bind(this);
-     let pickedFlowers = this.state.chosen
-       if (!this.state.flower[index].value) {
-        this.setState({
-          
-            flower: shuffleFlower(this.state.flower.map((flower, current) => {
-                return (current === index) ? {
-                    ...flower,
-                    value: true
-                } : flower
-            })),
-            user: {
-                ...this.state.user,
-                score: this.state.user.score + 1
-            }
-        });
+    this.flowerClick = this.flowerClick.bind(this);
+    flowerClick = this.state.chosen
+       if (pickedFlowers.includes(index)) {
+        alert("You already picked that flower, start over!");
+        // reset score, re-populate icons
+        let updatedflowerList = this.state.flowerList
+          .sort(() => 0.5 - Math.random());
+          this.setState({
+            flowerList: updatedflowerList,
+            score: 0,
+            pickedFlowers: []
+          });
+      } 
+      else{
 
-    } else {
-        this.setState({
-            flower: shuffleFlower(this.state.flower.map(flower => {
-                return {
-                    ...flower,
-                    value: false
-                }
-            })),
-            user: {
-                ...this.state.user,
-                score: 0
-            }
+      pickedFlowers.push(index);
+      let currentScore = this.state.score;
+      let currentHigh = this.state.highScore;
+      currentScore++;
+      if (currentScore > currentHigh) {
+        alert("<h2>You have reached the target score. Good Job! Start again!</h2>");
+      };
+      let updatedFlowerList = this.state.flowerList
+        .sort(() => 0.5 - Math.random());
+          this.setState({
+            flowerList: updatedFlowerList,
+            chosen: pickedFlowers,
+            score: currentScore,
+            
         });
+      console.log("This is the updatedFlowerList " + updatedFlowerList);
     };
-};
+  }
 
+
+ 
 
   // render our UI and use .map to print FlowerCards for each friend in the FlowerList
   render() {
     // destructure flowerList from state
-    const { flowerList } = this.state;
+    const {
+      flowerList
+    } = this.state;
 
     console.log(flowerList);
-
     return (
-      <Wrapper>
-        <h1 className="title">Flowers List</h1>
-        {/* Use .map to render flowerList  */}
-        {flowerList.map(friend => {
-          return (
-            <FlowerCard
-              key={flowers.id}
-              image={flowers.image}
-              value={flowers.value}
-              shuffleFlower={this.shuffleFlower}
-            />
+      <Wrapper >
+      <h1 className = "title"> Flowers List </h1> 
+      { /* Use .map to render flowerList  */ } {
+        flowerList.map(flowers => {
+          return ( <
+            FlowerCard key = {
+              flowers.id
+            }
+            image = {
+              flowers.image
+            }
+            value = {
+              flowers.value
+            }
+          />
+            
           );
-        })}
-      </Wrapper>
-    );
-  }
-}
+        })
+      }; 
+    
+    )};
 
-export default App;
+  )
+  </Wrapper>
+  )
+
+}}
+    export default App;
+
+  

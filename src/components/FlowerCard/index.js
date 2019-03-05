@@ -7,7 +7,7 @@ function FlowerCard(props) {
       <div className="img-container">
         <img alt={props.name} src={props.image} id={props.value}
           />
-          <span className="Shuffle" onClick={() => props.reshuffleFlower(props.flowerId)}></span>
+          <span className="Shuffle" onClick={() => props.flowerClick(props.flowerId)}></span>
       </div>
      
   )}
