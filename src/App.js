@@ -54,7 +54,7 @@ class App extends Component {
         });
       console.log("This is the updatedFlowerList " + updatedFlowerList);
     };
-  }
+  };
 
 
  
@@ -70,31 +70,22 @@ class App extends Component {
     return (
       <Wrapper >
       <h1 className = "title"> Flowers List </h1> 
-      { /* Use .map to render flowerList  */ } {
+      {
         flowerList.map(flowers => {
-          return ( <
-            FlowerCard key = {
-              flowers.id
-            }
-            image = {
-              flowers.image
-            }
-            value = {
-              flowers.value
-            }
+          return ( 
+            <FlowerCard 
+            key = {flowers.id}
+            image = {flowers.image}
+            value = {flowers.value}
           />
-            
           );
         })
-      }; 
+      };
+    </Wrapper>
+    )
     
-    )};
-
-  )
-  </Wrapper>
-  )
-
-}}
-    export default App;
-
+  };
+}
   
+
+    export default App;
